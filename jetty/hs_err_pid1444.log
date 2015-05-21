@@ -1,0 +1,809 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 3649536 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2798), pid=1444, tid=139678791395072
+#
+# JRE version: OpenJDK Runtime Environment (7.0_75-b13) (build 1.7.0_75-b13)
+# Java VM: OpenJDK 64-Bit Server VM (24.75-b04 mixed mode linux-amd64 compressed oops)
+# Derivative: IcedTea 2.5.4
+# Distribution: Ubuntu 14.04 LTS, package 7u75-2.5.4-1~trusty1
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f0984093000):  VMThread [stack: 0x00007f0980ae6000,0x00007f0980be7000] [id=1451]
+
+Stack: [0x00007f0980ae6000,0x00007f0980be7000],  sp=0x00007f0980be5590,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x94a9d5]  VMError::report_and_die()+0x175
+V  [libjvm.so+0x48b954]  report_vm_out_of_memory(char const*, int, unsigned long, char const*)+0x74
+V  [libjvm.so+0x7c7b7b]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0xeb
+V  [libjvm.so+0x7c263f]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x1f
+V  [libjvm.so+0x9478c4]  VirtualSpace::expand_by(unsigned long, bool)+0x1c4
+V  [libjvm.so+0x56183e]  OneContigSpaceCardGeneration::grow_by(unsigned long)+0x1e
+V  [libjvm.so+0x561b75]  OneContigSpaceCardGeneration::expand(unsigned long, unsigned long)+0x85
+V  [libjvm.so+0x553310]  GenCollectedHeap::do_collection(bool, bool, unsigned long, bool, int)+0x7a0
+V  [libjvm.so+0x4254b2]  GenCollectorPolicy::satisfy_failed_allocation(unsigned long, bool)+0xb2
+V  [libjvm.so+0x94bcd1]  VM_GenCollectForAllocation::doit()+0x81
+V  [libjvm.so+0x9508d7]  VM_Operation::evaluate()+0x47
+V  [libjvm.so+0x94f248]  VMThread::evaluate_operation(VM_Operation*)+0x318
+V  [libjvm.so+0x94f6a9]  VMThread::loop()+0x219
+V  [libjvm.so+0x94faf2]  VMThread::run()+0x72
+V  [libjvm.so+0x7c4a42]  java_start(Thread*)+0xf2
+
+VM_Operation (0x00007f09600ec0b0): GenCollectForAllocation, mode: safepoint, requested by thread 0x00007f0978003000
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007f0978003000 JavaThread "Lucene Merge Thread #16" daemon [_thread_blocked, id=5178, stack(0x00007f095ffed000,0x00007f09600ee000)]
+  0x00007f096c058800 JavaThread "process reaper" daemon [_thread_blocked, id=5166, stack(0x00007f095ff7a000,0x00007f095ffb3000)]
+  0x00007f0968015000 JavaThread "process reaper" daemon [_thread_blocked, id=5160, stack(0x00007f0960168000,0x00007f09601a1000)]
+  0x00007f097408c000 JavaThread "commitScheduler-8-thread-1" [_thread_blocked, id=2737, stack(0x00007f09603a3000,0x00007f09604a4000)]
+  0x00007f098400a000 JavaThread "DestroyJavaVM" [_thread_blocked, id=1450, stack(0x00007f098b4e1000,0x00007f098b5e2000)]
+  0x00007f0984825800 JavaThread "Thread-14" [_thread_blocked, id=1475, stack(0x00007f09601a1000,0x00007f09602a2000)]
+  0x00007f097039b000 JavaThread "searcherExecutor-6-thread-1" [_thread_blocked, id=1474, stack(0x00007f09602a2000,0x00007f09603a3000)]
+  0x00007f09845aa800 JavaThread "HashSessionScavenger-0" daemon [_thread_blocked, id=1471, stack(0x00007f0961df8000,0x00007f0961ef9000)]
+  0x00007f098462d800 JavaThread "qtp1992630282-19" [_thread_in_native, id=1468, stack(0x00007f096208a000,0x00007f096218b000)]
+  0x00007f098462b800 JavaThread "qtp1992630282-18" [_thread_in_native, id=1467, stack(0x00007f096218b000,0x00007f096228c000)]
+  0x00007f0984629000 JavaThread "qtp1992630282-17" [_thread_blocked, id=1466, stack(0x00007f096228c000,0x00007f096238d000)]
+  0x00007f0984627000 JavaThread "qtp1992630282-16" [_thread_blocked, id=1465, stack(0x00007f096238d000,0x00007f096248e000)]
+  0x00007f0984625000 JavaThread "qtp1992630282-15" [_thread_in_native, id=1464, stack(0x00007f096248e000,0x00007f096258f000)]
+  0x00007f0984623800 JavaThread "qtp1992630282-14" [_thread_blocked, id=1463, stack(0x00007f096258f000,0x00007f0962690000)]
+  0x00007f0984622000 JavaThread "qtp1992630282-13" [_thread_in_native, id=1462, stack(0x00007f0962690000,0x00007f0962791000)]
+  0x00007f0984620800 JavaThread "qtp1992630282-12" [_thread_in_native, id=1461, stack(0x00007f0962791000,0x00007f0962892000)]
+  0x00007f098461f000 JavaThread "qtp1992630282-11" [_thread_in_native, id=1460, stack(0x00007f0962892000,0x00007f0962993000)]
+  0x00007f0984619000 JavaThread "qtp1992630282-10 Acceptor0 SocketConnector@0.0.0.0:8983" [_thread_in_native, id=1459, stack(0x00007f0962993000,0x00007f0962a94000)]
+  0x00007f09840cd000 JavaThread "Service Thread" daemon [_thread_blocked, id=1457, stack(0x00007f0980357000,0x00007f0980458000)]
+  0x00007f09840ca800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=1456, stack(0x00007f0980458000,0x00007f0980559000)]
+  0x00007f09840c8000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=1455, stack(0x00007f0980559000,0x00007f098065a000)]
+  0x00007f09840c6000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=1454, stack(0x00007f098065a000,0x00007f098075b000)]
+  0x00007f0984099000 JavaThread "Finalizer" daemon [_thread_blocked, id=1453, stack(0x00007f09808e4000,0x00007f09809e5000)]
+  0x00007f0984097000 JavaThread "Reference Handler" daemon [_thread_blocked, id=1452, stack(0x00007f09809e5000,0x00007f0980ae6000)]
+
+Other Threads:
+=>0x00007f0984093000 VMThread [stack: 0x00007f0980ae6000,0x00007f0980be7000] [id=1451]
+  0x00007f09840d8000 WatcherThread [stack: 0x00007f0980256000,0x00007f0980357000] [id=1458]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007f0984006530] Threads_lock - owner thread: 0x00007f0984093000
+[0x00007f0984006a30] Heap_lock - owner thread: 0x00007f0978003000
+
+Heap
+ def new generation   total 23680K, used 0K [0x00000000d6800000, 0x00000000d81b0000, 0x00000000e0e00000)
+  eden space 21056K,   0% used [0x00000000d6800000, 0x00000000d6800000, 0x00000000d7c90000)
+  from space 2624K,   0% used [0x00000000d7f20000, 0x00000000d7f20000, 0x00000000d81b0000)
+  to   space 2624K,   0% used [0x00000000d7c90000, 0x00000000d7c90000, 0x00000000d7f20000)
+ tenured generation   total 53216K, used 34067K [0x00000000e0e00000, 0x00000000e41f8000, 0x00000000f5a00000)
+   the space 53216K,  64% used [0x00000000e0e00000, 0x00000000e2f44dc0, 0x00000000e2f44e00, 0x00000000e41f8000)
+ compacting perm gen  total 29696K, used 29677K [0x00000000f5a00000, 0x00000000f7700000, 0x0000000100000000)
+   the space 29696K,  99% used [0x00000000f5a00000, 0x00000000f76fb618, 0x00000000f76fb800, 0x00000000f7700000)
+No shared spaces configured.
+
+Card table byte_map: [0x00007f0980eb3000,0x00007f0981000000] byte_map_base: 0x00007f09807ff000
+
+Polling page: 0x00007f098b5ef000
+
+Code Cache  [0x00007f0981000000, 0x00007f0981450000, 0x00007f0984000000)
+ total_blobs=1763 nmethods=1319 adapters=395 free_code_cache=44842Kb largest_free_block=45843456
+
+Compilation events (10 events):
+Event: 55603.002 Thread 0x00007f09840c8000 1390             org.apache.lucene.store.FSDirectory$FSIndexOutput$1::write (38 bytes)
+Event: 55603.017 Thread 0x00007f09840c8000 nmethod 1390 0x00007f0981440e50 code [0x00007f0981440fa0, 0x00007f09814410c8]
+Event: 55603.263 Thread 0x00007f09840ca800 1391             java.text.DigitList::set (174 bytes)
+Event: 55603.347 Thread 0x00007f09840ca800 nmethod 1391 0x00007f0981431190 code [0x00007f0981431300, 0x00007f0981431748]
+Event: 55603.374 Thread 0x00007f09840c8000 1392             java.lang.CharacterDataLatin1::isJavaIdentifierPart (20 bytes)
+Event: 55603.378 Thread 0x00007f09840c8000 nmethod 1392 0x00007f0981412d50 code [0x00007f0981412e80, 0x00007f0981412f18]
+Event: 55603.451 Thread 0x00007f09840ca800 1393             org.apache.log4j.spi.LoggingEvent::getLevel (8 bytes)
+Event: 55603.452 Thread 0x00007f09840ca800 nmethod 1393 0x00007f0981440bd0 code [0x00007f0981440d20, 0x00007f0981440db8]
+Event: 55603.459 Thread 0x00007f09840ca800 1394             org.apache.solr.util.LongPriorityQueue::downHeap (141 bytes)
+Event: 55603.461 Thread 0x00007f09840ca800 nmethod 1394 0x00007f0981430bd0 code [0x00007f0981430d20, 0x00007f0981430f58]
+
+GC Heap History (10 events):
+Event: 55603.362 GC heap after
+Heap after GC invocations=489 (full 12):
+ def new generation   total 23680K, used 1387K [0x00000000d6800000, 0x00000000d81b0000, 0x00000000e0e00000)
+  eden space 21056K,   0% used [0x00000000d6800000, 0x00000000d6800000, 0x00000000d7c90000)
+  from space 2624K,  52% used [0x00000000d7c90000, 0x00000000d7deafe8, 0x00000000d7f20000)
+  to   space 2624K,   0% used [0x00000000d7f20000, 0x00000000d7f20000, 0x00000000d81b0000)
+ tenured generation   total 52448K, used 50629K [0x00000000e0e00000, 0x00000000e4138000, 0x00000000f5a00000)
+   the space 52448K,  96% used [0x00000000e0e00000, 0x00000000e3f71660, 0x00000000e3f71800, 0x00000000e4138000)
+ compacting perm gen  total 29696K, used 29676K [0x00000000f5a00000, 0x00000000f7700000, 0x0000000100000000)
+   the space 29696K,  99% used [0x00000000f5a00000, 0x00000000f76fb080, 0x00000000f76fb200, 0x00000000f7700000)
+No shared spaces configured.
+}
+Event: 55603.391 GC heap before
+{Heap before GC invocations=489 (full 12):
+ def new generation   total 23680K, used 22443K [0x00000000d6800000, 0x00000000d81b0000, 0x00000000e0e00000)
+  eden space 21056K,  99% used [0x00000000d6800000, 0x00000000d7c8ff80, 0x00000000d7c90000)
+  from space 2624K,  52% used [0x00000000d7c90000, 0x00000000d7deafe8, 0x00000000d7f20000)
+  to   space 2624K,   0% used [0x00000000d7f20000, 0x00000000d7f20000, 0x00000000d81b0000)
+ tenured generation   total 52448K, used 50629K [0x00000000e0e00000, 0x00000000e4138000, 0x00000000f5a00000)
+   the space 52448K,  96% used [0x00000000e0e00000, 0x00000000e3f71660, 0x00000000e3f71800, 0x00000000e4138000)
+ compacting perm gen  total 29696K, used 29676K [0x00000000f5a00000, 0x00000000f7700000, 0x0000000100000000)
+   the space 29696K,  99% used [0x00000000f5a00000, 0x00000000f76fb300, 0x00000000f76fb400, 0x00000000f7700000)
+No shared spaces configured.
+Event: 55603.393 GC heap after
+Heap after GC invocations=490 (full 12):
+ def new generation   total 23680K, used 2051K [0x00000000d6800000, 0x00000000d81b0000, 0x00000000e0e00000)
+  eden space 21056K,   0% used [0x00000000d6800000, 0x00000000d6800000, 0x00000000d7c90000)
+  from space 2624K,  78% used [0x00000000d7f20000, 0x00000000d8120fd0, 0x00000000d81b0000)
+  to   space 2624K,   0% used [0x00000000d7c90000, 0x00000000d7c90000, 0x00000000d7f20000)
+ tenured generation   total 52448K, used 50850K [0x00000000e0e00000, 0x00000000e4138000, 0x00000000f5a00000)
+   the space 52448K,  96% used [0x00000000e0e00000, 0x00000000e3fa8b38, 0x00000000e3fa8c00, 0x00000000e4138000)
+ compacting perm gen  total 29696K, used 29676K [0x00000000f5a00000, 0x00000000f7700000, 0x0000000100000000)
+   the space 29696K,  99% used [0x00000000f5a00000, 0x00000000f76fb300, 0x00000000f76fb400, 0x00000000f7700000)
+No shared spaces configured.
+}
+Event: 55603.417 GC heap before
+{Heap before GC invocations=490 (full 12):
+ def new generation   total 23680K, used 23107K [0x00000000d6800000, 0x00000000d81b0000, 0x00000000e0e00000)
+  eden space 21056K, 100% used [0x00000000d6800000, 0x00000000d7c90000, 0x00000000d7c90000)
+  from space 2624K,  78% used [0x00000000d7f20000, 0x00000000d8120fd0, 0x00000000d81b0000)
+  to   space 2624K,   0% used [0x00000000d7c90000, 0x00000000d7c90000, 0x00000000d7f20000)
+ tenured generation   total 52448K, used 50850K [0x00000000e0e00000, 0x00000000e4138000, 0x00000000f5a00000)
+   the space 52448K,  96% used [0x00000000e0e00000, 0x00000000e3fa8b38, 0x00000000e3fa8c00, 0x00000000e4138000)
+ compacting perm gen  total 29696K, used 29676K [0x00000000f5a00000, 0x00000000f7700000, 0x0000000100000000)
+   the space 29696K,  99% used [0x00000000f5a00000, 0x00000000f76fb300, 0x00000000f76fb400, 0x00000000f7700000)
+No shared spaces configured.
+Event: 55603.419 GC heap after
+Heap after GC invocations=491 (full 12):
+ def new generation   total 23680K, used 689K [0x00000000d6800000, 0x00000000d81b0000, 0x00000000e0e00000)
+  eden space 21056K,   0% used [0x00000000d6800000, 0x00000000d6800000, 0x00000000d7c90000)
+  from space 2624K,  26% used [0x00000000d7c90000, 0x00000000d7d3c468, 0x00000000d7f20000)
+  to   space 2624K,   0% used [0x00000000d7f20000, 0x00000000d7f20000, 0x00000000d81b0000)
+ tenured generation   total 52448K, used 51733K [0x00000000e0e00000, 0x00000000e4138000, 0x00000000f5a00000)
+   the space 52448K,  98% used [0x00000000e0e00000, 0x00000000e4085640, 0x00000000e4085800, 0x00000000e4138000)
+ compacting perm gen  total 29696K, used 29676K [0x00000000f5a00000, 0x00000000f7700000, 0x0000000100000000)
+   the space 29696K,  99% used [0x00000000f5a00000, 0x00000000f76fb300, 0x00000000f76fb400, 0x00000000f7700000)
+No shared spaces configured.
+}
+Event: 55603.438 GC heap before
+{Heap before GC invocations=491 (full 12):
+ def new generation   total 23680K, used 21745K [0x00000000d6800000, 0x00000000d81b0000, 0x00000000e0e00000)
+  eden space 21056K, 100% used [0x00000000d6800000, 0x00000000d7c90000, 0x00000000d7c90000)
+  from space 2624K,  26% used [0x00000000d7c90000, 0x00000000d7d3c468, 0x00000000d7f20000)
+  to   space 2624K,   0% used [0x00000000d7f20000, 0x00000000d7f20000, 0x00000000d81b0000)
+ tenured generation   total 52448K, used 51733K [0x00000000e0e00000, 0x00000000e4138000, 0x00000000f5a00000)
+   the space 52448K,  98% used [0x00000000e0e00000, 0x00000000e4085640, 0x00000000e4085800, 0x00000000e4138000)
+ compacting perm gen  total 29696K, used 29676K [0x00000000f5a00000, 0x00000000f7700000, 0x0000000100000000)
+   the space 29696K,  99% used [0x00000000f5a00000, 0x00000000f76fb300, 0x00000000f76fb400, 0x00000000f7700000)
+No shared spaces configured.
+Event: 55603.439 GC heap after
+Heap after GC invocations=492 (full 12):
+ def new generation   total 23680K, used 794K [0x00000000d6800000, 0x00000000d81b0000, 0x00000000e0e00000)
+  eden space 21056K,   0% used [0x00000000d6800000, 0x00000000d6800000, 0x00000000d7c90000)
+  from space 2624K,  30% used [0x00000000d7f20000, 0x00000000d7fe6b78, 0x00000000d81b0000)
+  to   space 2624K,   0% used [0x00000000d7c90000, 0x00000000d7c90000, 0x00000000d7f20000)
+ tenured generation   total 52448K, used 51733K [0x00000000e0e00000, 0x00000000e4138000, 0x00000000f5a00000)
+   the space 52448K,  98% used [0x00000000e0e00000, 0x00000000e4085640, 0x00000000e4085800, 0x00000000e4138000)
+ compacting perm gen  total 29696K, used 29676K [0x00000000f5a00000, 0x00000000f7700000, 0x0000000100000000)
+   the space 29696K,  99% used [0x00000000f5a00000, 0x00000000f76fb300, 0x00000000f76fb400, 0x00000000f7700000)
+No shared spaces configured.
+}
+Event: 55603.476 GC heap before
+{Heap before GC invocations=492 (full 12):
+ def new generation   total 23680K, used 21850K [0x00000000d6800000, 0x00000000d81b0000, 0x00000000e0e00000)
+  eden space 21056K, 100% used [0x00000000d6800000, 0x00000000d7c90000, 0x00000000d7c90000)
+  from space 2624K,  30% used [0x00000000d7f20000, 0x00000000d7fe6b78, 0x00000000d81b0000)
+  to   space 2624K,   0% used [0x00000000d7c90000, 0x00000000d7c90000, 0x00000000d7f20000)
+ tenured generation   total 52448K, used 51733K [0x00000000e0e00000, 0x00000000e4138000, 0x00000000f5a00000)
+   the space 52448K,  98% used [0x00000000e0e00000, 0x00000000e4085640, 0x00000000e4085800, 0x00000000e4138000)
+ compacting perm gen  total 29696K, used 29677K [0x00000000f5a00000, 0x00000000f7700000, 0x0000000100000000)
+   the space 29696K,  99% used [0x00000000f5a00000, 0x00000000f76fb4b0, 0x00000000f76fb600, 0x00000000f7700000)
+No shared spaces configured.
+Event: 55603.479 GC heap after
+Heap after GC invocations=493 (full 12):
+ def new generation   total 23680K, used 2624K [0x00000000d6800000, 0x00000000d81b0000, 0x00000000e0e00000)
+  eden space 21056K,   0% used [0x00000000d6800000, 0x00000000d6800000, 0x00000000d7c90000)
+  from space 2624K, 100% used [0x00000000d7c90000, 0x00000000d7f20000, 0x00000000d7f20000)
+  to   space 2624K,   0% used [0x00000000d7f20000, 0x00000000d7f20000, 0x00000000d81b0000)
+ tenured generation   total 52448K, used 51924K [0x00000000e0e00000, 0x00000000e4138000, 0x00000000f5a00000)
+   the space 52448K,  99% used [0x00000000e0e00000, 0x00000000e40b5328, 0x00000000e40b5400, 0x00000000e4138000)
+ compacting perm gen  total 29696K, used 29677K [0x00000000f5a00000, 0x00000000f7700000, 0x0000000100000000)
+   the space 29696K,  99% used [0x00000000f5a00000, 0x00000000f76fb4b0, 0x00000000f76fb600, 0x00000000f7700000)
+No shared spaces configured.
+}
+Event: 55603.502 GC heap before
+{Heap before GC invocations=493 (full 12):
+ def new generation   total 23680K, used 23658K [0x00000000d6800000, 0x00000000d81b0000, 0x00000000e0e00000)
+  eden space 21056K,  99% used [0x00000000d6800000, 0x00000000d7c8aae8, 0x00000000d7c90000)
+  from space 2624K, 100% used [0x00000000d7c90000, 0x00000000d7f20000, 0x00000000d7f20000)
+  to   space 2624K,   0% used [0x00000000d7f20000, 0x00000000d7f20000, 0x00000000d81b0000)
+ tenured generation   total 52448K, used 51924K [0x00000000e0e00000, 0x00000000e4138000, 0x00000000f5a00000)
+   the space 52448K,  99% used [0x00000000e0e00000, 0x00000000e40b5328, 0x00000000e40b5400, 0x00000000e4138000)
+ compacting perm gen  total 29696K, used 29677K [0x00000000f5a00000, 0x00000000f7700000, 0x0000000100000000)
+   the space 29696K,  99% used [0x00000000f5a00000, 0x00000000f76fb618, 0x00000000f76fb800, 0x00000000f7700000)
+No shared spaces configured.
+
+Deoptimization events (10 events):
+Event: 55593.818 Thread 0x00007f098462d800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f0981397880 method=org.apache.solr.common.params.DefaultSolrParams.getParams(Ljava/lang/String;)[Ljava/lang/String; @ 22
+Event: 55593.818 Thread 0x00007f098462d800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f098118a7b4 method=org.apache.solr.common.util.IteratorChain.recursiveHasNext()Z @ 44
+Event: 55593.818 Thread 0x00007f098462d800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f0981184a84 method=org.apache.solr.common.util.IteratorChain.next()Ljava/lang/Object; @ 21
+Event: 55593.818 Thread 0x00007f098462d800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f0981397880 method=org.apache.solr.common.params.DefaultSolrParams.getParams(Ljava/lang/String;)[Ljava/lang/String; @ 22
+Event: 55593.818 Thread 0x00007f098462d800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f098118a7b4 method=org.apache.solr.common.util.IteratorChain.recursiveHasNext()Z @ 44
+Event: 55593.818 Thread 0x00007f098462d800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f0981184a84 method=org.apache.solr.common.util.IteratorChain.next()Ljava/lang/Object; @ 21
+Event: 55593.818 Thread 0x00007f098462d800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f09812e3188 method=org.apache.solr.common.util.IteratorChain.recursiveHasNext()Z @ 44
+Event: 55593.823 Thread 0x00007f0984620800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007f09812ec780 method=org.eclipse.jetty.io.ByteArrayBuffer.equalsIgnoreCase(Lorg/eclipse/jetty/io/Buffer;)Z @ 12
+Event: 55597.578 Thread 0x00007f0984629000 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00007f0981413604 method=org.apache.log4j.NDC.getCurrentStack()Ljava/util/Stack; @ 15
+Event: 55601.438 Thread 0x00007f0978003000 Uncommon trap: reason=range_check action=make_not_entrant pc=0x00007f09811d63c8 method=org.apache.lucene.store.ByteArrayDataInput.readVInt()I @ 43
+
+Internal exceptions (10 events):
+Event: 55601.828 Thread 0x00007f0984623800 Threw 0x00000000d7ab33a8 at /build/buildd/openjdk-7-7u75-2.5.4/build/openjdk/hotspot/src/share/vm/prims/jni.cpp:721
+Event: 55601.997 Thread 0x00007f0984627000 Threw 0x00000000d6a65960 at /build/buildd/openjdk-7-7u75-2.5.4/build/openjdk/hotspot/src/share/vm/prims/jni.cpp:721
+Event: 55602.092 Thread 0x00007f0984629000 Threw 0x00000000d6fad630 at /build/buildd/openjdk-7-7u75-2.5.4/build/openjdk/hotspot/src/share/vm/prims/jni.cpp:721
+Event: 55602.168 Thread 0x00007f0984623800 Threw 0x00000000d681f168 at /build/buildd/openjdk-7-7u75-2.5.4/build/openjdk/hotspot/src/share/vm/prims/jni.cpp:721
+Event: 55602.252 Thread 0x00007f0984627000 Threw 0x00000000d6820c78 at /build/buildd/openjdk-7-7u75-2.5.4/build/openjdk/hotspot/src/share/vm/prims/jni.cpp:721
+Event: 55602.432 Thread 0x00007f0984629000 Threw 0x00000000d6885560 at /build/buildd/openjdk-7-7u75-2.5.4/build/openjdk/hotspot/src/share/vm/prims/jni.cpp:721
+Event: 55602.639 Thread 0x00007f0984623800 Threw 0x00000000d6e44618 at /build/buildd/openjdk-7-7u75-2.5.4/build/openjdk/hotspot/src/share/vm/prims/jni.cpp:721
+Event: 55603.006 Thread 0x00007f0984627000 Threw 0x00000000d68b2dc8 at /build/buildd/openjdk-7-7u75-2.5.4/build/openjdk/hotspot/src/share/vm/prims/jni.cpp:721
+Event: 55603.251 Thread 0x00007f0984629000 Threw 0x00000000d6aac050 at /build/buildd/openjdk-7-7u75-2.5.4/build/openjdk/hotspot/src/share/vm/prims/jni.cpp:721
+Event: 55603.443 Thread 0x00007f0984623800 Threw 0x00000000d6b999e8 at /build/buildd/openjdk-7-7u75-2.5.4/build/openjdk/hotspot/src/share/vm/prims/jni.cpp:721
+
+Events (10 events):
+Event: 55603.362 Executing VM operation: GenCollectForAllocation done
+Event: 55603.389 Executing VM operation: GenCollectForAllocation
+Event: 55603.399 Executing VM operation: GenCollectForAllocation done
+Event: 55603.417 Executing VM operation: GenCollectForAllocation
+Event: 55603.419 Executing VM operation: GenCollectForAllocation done
+Event: 55603.438 Executing VM operation: GenCollectForAllocation
+Event: 55603.440 Executing VM operation: GenCollectForAllocation done
+Event: 55603.475 Executing VM operation: GenCollectForAllocation
+Event: 55603.479 Executing VM operation: GenCollectForAllocation done
+Event: 55603.502 Executing VM operation: GenCollectForAllocation
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 ca:01 14145                              /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
+00600000-00601000 r--p 00000000 ca:01 14145                              /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
+00601000-00602000 rw-p 00001000 ca:01 14145                              /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
+00fee000-01032000 rw-p 00000000 00:00 0                                  [heap]
+d6800000-d81b0000 rw-p 00000000 00:00 0 
+d81b0000-e0e00000 rw-p 00000000 00:00 0 
+e0e00000-e41f8000 rw-p 00000000 00:00 0 
+e4573000-f5a00000 rw-p 00000000 00:00 0 
+f5a00000-f7700000 rw-p 00000000 00:00 0 
+f7700000-100000000 rw-p 00000000 00:00 0 
+7f095ff39000-7f095ff3f000 r--s 00000000 ca:01 458605                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4t_Lucene41_0.tim
+7f095ff3f000-7f095ff4a000 r--s 00000000 ca:01 458591                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4s_Lucene41_0.tim
+7f095ff7a000-7f095ff7d000 ---p 00000000 00:00 0 
+7f095ff7d000-7f095ffb3000 rw-p 00000000 00:00 0                          [stack:5166]
+7f095ffbe000-7f095ffbf000 r--s 00000000 ca:01 458628                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4t.tvd
+7f095ffbf000-7f095ffc0000 r--s 00000000 ca:01 458608                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4t.fdt
+7f095ffc0000-7f095ffc1000 r--s 00000000 ca:01 458630                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4t.nvd
+7f095ffc1000-7f095ffc2000 r--s 00000000 ca:01 458604                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4t_Lucene41_0.pos
+7f095ffc2000-7f095ffc3000 r--s 00000000 ca:01 458627                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4t_Lucene41_0.doc
+7f095ffc3000-7f095ffc4000 r--s 00000000 ca:01 458596                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4s.tvd
+7f095ffc4000-7f095ffc5000 r--s 00000000 ca:01 458593                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4s.fdt
+7f095ffc5000-7f095ffc6000 r--s 00000000 ca:01 458574                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4s.nvd
+7f095ffc6000-7f095ffc7000 r--s 00000000 ca:01 458598                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4s_Lucene41_0.pos
+7f095ffc7000-7f095ffc8000 r--s 00000000 ca:01 458599                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4s_Lucene41_0.doc
+7f095ffc8000-7f095ffc9000 r--s 00000000 ca:01 458576                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4r.tvd
+7f095ffc9000-7f095ffca000 r--s 00000000 ca:01 458575                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4r.fdt
+7f095ffca000-7f095ffcb000 r--s 00000000 ca:01 458580                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4r.nvd
+7f095ffcb000-7f095ffd0000 r--s 00000000 ca:01 458585                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4r_Lucene41_0.tim
+7f095ffd0000-7f095ffd1000 r--s 00000000 ca:01 458579                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4r_Lucene41_0.pos
+7f095ffd1000-7f095ffd2000 r--s 00000000 ca:01 458583                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4r_Lucene41_0.doc
+7f095ffd2000-7f095ffd3000 r--s 00000000 ca:01 458572                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4q.tvd
+7f095ffd3000-7f095ffd4000 r--s 00000000 ca:01 458567                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4q.fdt
+7f095ffd4000-7f095ffd5000 r--s 00000000 ca:01 458544                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4q.nvd
+7f095ffd5000-7f095ffda000 r--s 00000000 ca:01 458569                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4q_Lucene41_0.tim
+7f095ffda000-7f095ffdb000 r--s 00000000 ca:01 458559                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4q_Lucene41_0.pos
+7f095ffdb000-7f095ffe0000 r--s 00000000 ca:01 458517                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4p_Lucene41_0.tim
+7f095ffe0000-7f095ffeb000 r--s 00000000 ca:01 458503                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4o_Lucene41_0.tim
+7f095ffed000-7f095fff0000 ---p 00000000 00:00 0 
+7f095fff0000-7f09600ee000 rw-p 00000000 00:00 0                          [stack:5178]
+7f09600ee000-7f09600ef000 r--s 00000000 ca:01 458571                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4q_Lucene41_0.doc
+7f09600ef000-7f09600f0000 r--s 00000000 ca:01 458513                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4p.tvd
+7f09600f0000-7f09600f1000 r--s 00000000 ca:01 458509                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4p.fdt
+7f09600f1000-7f09600f2000 r--s 00000000 ca:01 458512                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4p.nvd
+7f09600f2000-7f09600f3000 r--s 00000000 ca:01 458542                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4p_Lucene41_0.pos
+7f09600f3000-7f09600f4000 r--s 00000000 ca:01 458515                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4p_Lucene41_0.doc
+7f0960104000-7f0960105000 r--s 00000000 ca:01 458495                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4o.tvd
+7f0960105000-7f0960106000 r--s 00000000 ca:01 458497                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4o.fdt
+7f0960106000-7f0960107000 r--s 00000000 ca:01 458482                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4o.nvd
+7f0960107000-7f0960108000 r--s 00000000 ca:01 458500                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4o_Lucene41_0.pos
+7f0960108000-7f0960109000 r--s 00000000 ca:01 458501                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4o_Lucene41_0.doc
+7f0960109000-7f096010a000 r--s 00000000 ca:01 458493                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4n.tvd
+7f0960127000-7f096012e000 r--s 00000000 ca:01 458443                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4x_Lucene41_0.tim
+7f096012e000-7f096012f000 r--s 00000000 ca:01 458489                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4n.fdt
+7f096012f000-7f0960130000 r--s 00000000 ca:01 458484                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4n.nvd
+7f0960130000-7f0960136000 r--s 00000000 ca:01 458490                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4n_Lucene41_0.tim
+7f0960136000-7f0960137000 r--s 00000000 ca:01 458486                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4n_Lucene41_0.pos
+7f0960137000-7f0960138000 r--s 00000000 ca:01 458487                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4n_Lucene41_0.doc
+7f0960138000-7f0960139000 r--s 00000000 ca:01 458475                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4m.tvd
+7f0960139000-7f096013a000 r--s 00000000 ca:01 458477                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4m.fdt
+7f096013a000-7f096013b000 r--s 00000000 ca:01 458472                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4m.nvd
+7f096013b000-7f0960141000 r--s 00000000 ca:01 458474                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4m_Lucene41_0.tim
+7f0960141000-7f0960142000 r--s 00000000 ca:01 458471                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4m_Lucene41_0.pos
+7f0960142000-7f0960143000 r--s 00000000 ca:01 458480                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4m_Lucene41_0.doc
+7f0960143000-7f096014e000 r--s 00000000 ca:01 406337                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4l_Lucene41_0.tim
+7f096014e000-7f096014f000 rw-p 00000000 00:00 0 
+7f096014f000-7f0960150000 r--s 00000000 ca:01 406364                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4x.tvd
+7f0960150000-7f0960151000 r--s 00000000 ca:01 458446                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4x.fdt
+7f0960151000-7f0960152000 r--s 00000000 ca:01 406367                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4x.nvd
+7f0960152000-7f0960153000 r--s 00000000 ca:01 406366                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4x_Lucene41_0.pos
+7f0960153000-7f0960154000 r--s 00000000 ca:01 406333                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4x_Lucene41_0.doc
+7f0960154000-7f0960155000 r--s 00000000 ca:01 406356                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4w.tvd
+7f0960155000-7f0960156000 r--s 00000000 ca:01 406353                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4w.fdt
+7f0960156000-7f0960157000 r--s 00000000 ca:01 406348                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4w.nvd
+7f0960157000-7f096015e000 r--s 00000000 ca:01 406358                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4w_Lucene41_0.tim
+7f096015e000-7f096015f000 r--s 00000000 ca:01 406351                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4w_Lucene41_0.pos
+7f096015f000-7f0960160000 r--s 00000000 ca:01 406350                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4w_Lucene41_0.doc
+7f0960160000-7f0960161000 r--s 00000000 ca:01 406340                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4l.tvd
+7f0960161000-7f0960162000 r--s 00000000 ca:01 406338                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4l.fdt
+7f0960162000-7f0960163000 r--s 00000000 ca:01 406345                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4l.nvd
+7f0960163000-7f0960164000 r--s 00000000 ca:01 406347                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4l_Lucene41_0.pos
+7f0960164000-7f0960165000 r--s 00000000 ca:01 406339                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4l_Lucene41_0.doc
+7f0960165000-7f0960166000 r--s 00000000 ca:01 406327                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4v.tvd
+7f0960166000-7f0960167000 r--s 00000000 ca:01 396083                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4v.fdt
+7f0960167000-7f0960168000 r--s 00000000 ca:01 406332                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4v.nvd
+7f0960168000-7f096016b000 ---p 00000000 00:00 0 
+7f096016b000-7f09601a1000 rw-p 00000000 00:00 0                          [stack:5160]
+7f09601a1000-7f09601a4000 ---p 00000000 00:00 0 
+7f09601a4000-7f09602a2000 rw-p 00000000 00:00 0                          [stack:1475]
+7f09602a2000-7f09602a5000 ---p 00000000 00:00 0 
+7f09602a5000-7f09603a3000 rw-p 00000000 00:00 0                          [stack:1474]
+7f09603a3000-7f09603a6000 ---p 00000000 00:00 0 
+7f09603a6000-7f09604a4000 rw-p 00000000 00:00 0                          [stack:2737]
+7f09604a4000-7f09604a9000 r-xp 00000000 ca:01 398007                     /lib/x86_64-linux-gnu/libnss_dns-2.19.so
+7f09604a9000-7f09606a8000 ---p 00005000 ca:01 398007                     /lib/x86_64-linux-gnu/libnss_dns-2.19.so
+7f09606a8000-7f09606a9000 r--p 00004000 ca:01 398007                     /lib/x86_64-linux-gnu/libnss_dns-2.19.so
+7f09606a9000-7f09606aa000 rw-p 00005000 ca:01 398007                     /lib/x86_64-linux-gnu/libnss_dns-2.19.so
+7f09606aa000-7f0960722000 r-xp 00000000 ca:01 27487                      /usr/lib/x86_64-linux-gnu/nss/libfreebl3.so
+7f0960722000-7f0960922000 ---p 00078000 ca:01 27487                      /usr/lib/x86_64-linux-gnu/nss/libfreebl3.so
+7f0960922000-7f0960924000 r--p 00078000 ca:01 27487                      /usr/lib/x86_64-linux-gnu/nss/libfreebl3.so
+7f0960924000-7f0960925000 rw-p 0007a000 ca:01 27487                      /usr/lib/x86_64-linux-gnu/nss/libfreebl3.so
+7f0960925000-7f0960929000 rw-p 00000000 00:00 0 
+7f0960929000-7f09609dd000 r-xp 00000000 ca:01 8130                       /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6
+7f09609dd000-7f0960bdd000 ---p 000b4000 ca:01 8130                       /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6
+7f0960bdd000-7f0960bdf000 r--p 000b4000 ca:01 8130                       /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6
+7f0960bdf000-7f0960be1000 rw-p 000b6000 ca:01 8130                       /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6
+7f0960be1000-7f0960be2000 rw-p 00000000 00:00 0 
+7f0960be2000-7f0960c22000 r-xp 00000000 ca:01 27485                      /usr/lib/x86_64-linux-gnu/nss/libsoftokn3.so
+7f0960c22000-7f0960e22000 ---p 00040000 ca:01 27485                      /usr/lib/x86_64-linux-gnu/nss/libsoftokn3.so
+7f0960e22000-7f0960e23000 r--p 00040000 ca:01 27485                      /usr/lib/x86_64-linux-gnu/nss/libsoftokn3.so
+7f0960e23000-7f0960e24000 rw-p 00041000 ca:01 27485                      /usr/lib/x86_64-linux-gnu/nss/libsoftokn3.so
+7f0960e24000-7f0960e5c000 r-xp 00000000 ca:01 27478                      /usr/lib/x86_64-linux-gnu/libnspr4.so
+7f0960e5c000-7f096105c000 ---p 00038000 ca:01 27478                      /usr/lib/x86_64-linux-gnu/libnspr4.so
+7f096105c000-7f096105d000 r--p 00038000 ca:01 27478                      /usr/lib/x86_64-linux-gnu/libnspr4.so
+7f096105d000-7f096105e000 rw-p 00039000 ca:01 27478                      /usr/lib/x86_64-linux-gnu/libnspr4.so
+7f096105e000-7f0961061000 rw-p 00000000 00:00 0 
+7f0961061000-7f0961064000 r-xp 00000000 ca:01 27476                      /usr/lib/x86_64-linux-gnu/libplds4.so
+7f0961064000-7f0961263000 ---p 00003000 ca:01 27476                      /usr/lib/x86_64-linux-gnu/libplds4.so
+7f0961263000-7f0961264000 r--p 00002000 ca:01 27476                      /usr/lib/x86_64-linux-gnu/libplds4.so
+7f0961264000-7f0961265000 rw-p 00003000 ca:01 27476                      /usr/lib/x86_64-linux-gnu/libplds4.so
+7f0961265000-7f0961269000 r-xp 00000000 ca:01 27477                      /usr/lib/x86_64-linux-gnu/libplc4.so
+7f0961269000-7f0961468000 ---p 00004000 ca:01 27477                      /usr/lib/x86_64-linux-gnu/libplc4.so
+7f0961468000-7f0961469000 r--p 00003000 ca:01 27477                      /usr/lib/x86_64-linux-gnu/libplc4.so
+7f0961469000-7f096146a000 rw-p 00004000 ca:01 27477                      /usr/lib/x86_64-linux-gnu/libplc4.so
+7f096146a000-7f096148f000 r-xp 00000000 ca:01 27491                      /usr/lib/x86_64-linux-gnu/libnssutil3.so
+7f096148f000-7f096168e000 ---p 00025000 ca:01 27491                      /usr/lib/x86_64-linux-gnu/libnssutil3.so
+7f096168e000-7f0961694000 r--p 00024000 ca:01 27491                      /usr/lib/x86_64-linux-gnu/libnssutil3.so
+7f0961694000-7f0961695000 rw-p 0002a000 ca:01 27491                      /usr/lib/x86_64-linux-gnu/libnssutil3.so
+7f0961695000-7f09617c8000 r-xp 00000000 ca:01 27492                      /usr/lib/x86_64-linux-gnu/libnss3.so
+7f09617c8000-7f09619c7000 ---p 00133000 ca:01 27492                      /usr/lib/x86_64-linux-gnu/libnss3.so
+7f09619c7000-7f09619cc000 r--p 00132000 ca:01 27492                      /usr/lib/x86_64-linux-gnu/libnss3.so
+7f09619cc000-7f09619ce000 rw-p 00137000 ca:01 27492                      /usr/lib/x86_64-linux-gnu/libnss3.so
+7f09619ce000-7f09619cf000 rw-p 00000000 00:00 0 
+7f09619cf000-7f09619d5000 r--s 00000000 ca:01 406299                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4v_Lucene41_0.tim
+7f09619d5000-7f09619d6000 r--s 00000000 ca:01 406326                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4v_Lucene41_0.pos
+7f09619d6000-7f09619d7000 r--s 00000000 ca:01 406328                     /home/ubuntu/nyugeoblacklight/jetty/solr/blacklight-core/data/index/_4v_Lucene41_0.doc
+7f09619d7000-7f09619d8000 r--p 00000000 00:00 0 
+7f09619d8000-7f09619e8000 r-xp 00000000 ca:01 14133                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libj2pkcs11.so
+7f09619e8000-7f0961be7000 ---p 00010000 ca:01 14133                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libj2pkcs11.so
+7f0961be7000-7f0961be8000 r--p 0000f000 ca:01 14133                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libj2pkcs11.so
+7f0961be8000-7f0961be9000 rw-p 00010000 ca:01 14133                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libj2pkcs11.so
+7f0961be9000-7f0961bf1000 r-xp 00000000 ca:01 14121                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libmanagement.so
+7f0961bf1000-7f0961df0000 ---p 00008000 ca:01 14121                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libmanagement.so
+7f0961df0000-7f0961df1000 r--p 00007000 ca:01 14121                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libmanagement.so
+7f0961df1000-7f0961df2000 rw-p 00008000 ca:01 14121                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libmanagement.so
+7f0961df2000-7f0961df4000 r--s 0000b000 ca:01 414752                     /home/ubuntu/nyugeoblacklight/jetty/solr/lib/solr-clustering-4.10.3.jar
+7f0961df4000-7f0961df5000 r--s 00004000 ca:01 414751                     /home/ubuntu/nyugeoblacklight/jetty/solr/lib/solr-analysis-extras-4.10.3.jar
+7f0961df5000-7f0961df8000 r--s 000b9000 ca:01 414753                     /home/ubuntu/nyugeoblacklight/jetty/solr/lib/solr-langid-4.10.3.jar
+7f0961df8000-7f0961dfb000 ---p 00000000 00:00 0 
+7f0961dfb000-7f0961ef9000 rw-p 00000000 00:00 0                          [stack:1471]
+7f0961ef9000-7f0961f22000 r--s 001ee000 ca:01 414778                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/guava-14.0.1.jar
+7f0961f22000-7f0961f25000 r--s 0001f000 ca:01 414803                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/lucene-highlighter-4.10.3.jar
+7f0961f25000-7f0961f2f000 r--s 000a8000 ca:01 414785                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/org.restlet-2.1.1.jar
+7f0961f2f000-7f0961f36000 r--s 0003a000 ca:01 414772                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/commons-codec-1.9.jar
+7f0961f36000-7f0961f37000 r--s 00005000 ca:01 414798                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/lucene-analyzers-phonetic-4.10.3.jar
+7f0961f37000-7f0961f61000 r--s 00248000 ca:01 414800                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/lucene-core-4.10.3.jar
+7f0961f61000-7f0961f63000 r--s 0000e000 ca:01 414804                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/lucene-join-4.10.3.jar
+7f0961f63000-7f0961f65000 r--s 00016000 ca:01 414806                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/lucene-misc-4.10.3.jar
+7f0961f65000-7f0961f67000 r--s 00003000 ca:01 414779                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/hadoop-annotations-2.2.0.jar
+7f0961f67000-7f0961f68000 r--s 00005000 ca:01 414793                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/noggit-0.5.jar
+7f0961f68000-7f0961f6d000 r--s 00048000 ca:01 414777                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/dom4j-1.6.1.jar
+7f0961f6d000-7f0961f72000 r--s 00041000 ca:01 414775                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/commons-lang-2.6.jar
+7f0961f72000-7f0961f7b000 r--s 00066000 ca:01 414812                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/solr-solrj-4.10.3.jar
+7f0961f7b000-7f0961f7d000 r--s 0000b000 ca:01 414780                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/hadoop-auth-2.2.0.jar
+7f0961f7d000-7f0961f85000 r--s 0007b000 ca:01 414787                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/protobuf-java-2.5.0.jar
+7f0961f85000-7f0961f91000 r--s 000b6000 ca:01 414795                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/zookeeper-3.4.6.jar
+7f0961f91000-7f0961fbc000 r--s 00271000 ca:01 414781                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/hadoop-common-2.2.0.jar
+7f0961fbc000-7f0961fc0000 r--s 00029000 ca:01 414789                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/commons-io-2.3.jar
+7f0961fc0000-7f0961fc6000 r--s 0002f000 ca:01 414807                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/lucene-queries-4.10.3.jar
+7f0961fc6000-7f0961fcf000 r--s 00057000 ca:01 414808                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/lucene-queryparser-4.10.3.jar
+7f0961fcf000-7f0961fd1000 r--s 00008000 ca:01 414792                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/httpmime-4.3.1.jar
+7f0961fd1000-7f0961fd4000 r--s 0001c000 ca:01 414809                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/lucene-spatial-4.10.3.jar
+7f0961fd4000-7f0961fd6000 r--s 00017000 ca:01 414788                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/spatial4j-0.4.1.jar
+7f0961fd6000-7f0961fee000 r--s 00123000 ca:01 414783                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/hppc-0.5.2.jar
+7f0961fee000-7f0962033000 r--s 004bb000 ca:01 414782                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/hadoop-hdfs-2.2.0.jar
+7f0962033000-7f096203a000 r--s 00079000 ca:01 414794                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/wstx-asl-3.2.7.jar
+7f096203a000-7f096204b000 r--s 0018f000 ca:01 414796                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/lucene-analyzers-common-4.10.3.jar
+7f096204b000-7f096204e000 r--s 00029000 ca:01 414810                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/lucene-suggest-4.10.3.jar
+7f096204e000-7f0962050000 r--s 00009000 ca:01 414771                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/commons-cli-1.2.jar
+7f0962050000-7f0962059000 r--s 0006c000 ca:01 414799                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/lucene-codecs-4.10.3.jar
+7f0962059000-7f096205a000 r--s 00008000 ca:01 414805                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/lucene-memory-4.10.3.jar
+7f096205a000-7f096205b000 r--s 00004000 ca:01 414786                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/org.restlet.ext.servlet-2.1.1.jar
+7f096205b000-7f096205e000 r--s 0000c000 ca:01 414774                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/commons-fileupload-1.2.1.jar
+7f096205e000-7f0962060000 r--s 00008000 ca:01 414770                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/asm-commons-4.1.jar
+7f0962060000-7f0962063000 r--s 00460000 ca:01 414797                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/lucene-analyzers-kuromoji-4.10.3.jar
+7f0962063000-7f096208a000 r--s 00292000 ca:01 414811                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/solr-core-4.10.3.jar
+7f096208a000-7f096208d000 ---p 00000000 00:00 0 
+7f096208d000-7f096218b000 rw-p 00000000 00:00 0                          [stack:1468]
+7f096218b000-7f096218e000 ---p 00000000 00:00 0 
+7f096218e000-7f096228c000 rw-p 00000000 00:00 0                          [stack:1467]
+7f096228c000-7f096228f000 ---p 00000000 00:00 0 
+7f096228f000-7f096238d000 rw-p 00000000 00:00 0                          [stack:1466]
+7f096238d000-7f0962390000 ---p 00000000 00:00 0 
+7f0962390000-7f096248e000 rw-p 00000000 00:00 0                          [stack:1465]
+7f096248e000-7f0962491000 ---p 00000000 00:00 0 
+7f0962491000-7f096258f000 rw-p 00000000 00:00 0                          [stack:1464]
+7f096258f000-7f0962592000 ---p 00000000 00:00 0 
+7f0962592000-7f0962690000 rw-p 00000000 00:00 0                          [stack:1463]
+7f0962690000-7f0962693000 ---p 00000000 00:00 0 
+7f0962693000-7f0962791000 rw-p 00000000 00:00 0                          [stack:1462]
+7f0962791000-7f0962794000 ---p 00000000 00:00 0 
+7f0962794000-7f0962892000 rw-p 00000000 00:00 0                          [stack:1461]
+7f0962892000-7f0962895000 ---p 00000000 00:00 0 
+7f0962895000-7f0962993000 rw-p 00000000 00:00 0                          [stack:1460]
+7f0962993000-7f0962996000 ---p 00000000 00:00 0 
+7f0962996000-7f0962a94000 rw-p 00000000 00:00 0                          [stack:1459]
+7f0962a94000-7f0962ad1000 r-xp 00000000 ca:01 396058                     /lib/x86_64-linux-gnu/libpcre.so.3.13.1
+7f0962ad1000-7f0962cd0000 ---p 0003d000 ca:01 396058                     /lib/x86_64-linux-gnu/libpcre.so.3.13.1
+7f0962cd0000-7f0962cd1000 r--p 0003c000 ca:01 396058                     /lib/x86_64-linux-gnu/libpcre.so.3.13.1
+7f0962cd1000-7f0962cd2000 rw-p 0003d000 ca:01 396058                     /lib/x86_64-linux-gnu/libpcre.so.3.13.1
+7f0962cd2000-7f0962cd9000 r-xp 00000000 ca:01 8067                       /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
+7f0962cd9000-7f0962ed8000 ---p 00007000 ca:01 8067                       /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
+7f0962ed8000-7f0962ed9000 r--p 00006000 ca:01 8067                       /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
+7f0962ed9000-7f0962eda000 rw-p 00007000 ca:01 8067                       /usr/lib/x86_64-linux-gnu/libffi.so.6.0.1
+7f0962eda000-7f0962ef1000 r-xp 00000000 ca:01 398003                     /lib/x86_64-linux-gnu/libresolv-2.19.so
+7f0962ef1000-7f09630f1000 ---p 00017000 ca:01 398003                     /lib/x86_64-linux-gnu/libresolv-2.19.so
+7f09630f1000-7f09630f2000 r--p 00017000 ca:01 398003                     /lib/x86_64-linux-gnu/libresolv-2.19.so
+7f09630f2000-7f09630f3000 rw-p 00018000 ca:01 398003                     /lib/x86_64-linux-gnu/libresolv-2.19.so
+7f09630f3000-7f09630f5000 rw-p 00000000 00:00 0 
+7f09630f5000-7f0963115000 r-xp 00000000 ca:01 396070                     /lib/x86_64-linux-gnu/libselinux.so.1
+7f0963115000-7f0963314000 ---p 00020000 ca:01 396070                     /lib/x86_64-linux-gnu/libselinux.so.1
+7f0963314000-7f0963315000 r--p 0001f000 ca:01 396070                     /lib/x86_64-linux-gnu/libselinux.so.1
+7f0963315000-7f0963316000 rw-p 00020000 ca:01 396070                     /lib/x86_64-linux-gnu/libselinux.so.1
+7f0963316000-7f0963318000 rw-p 00000000 00:00 0 
+7f0963318000-7f096331b000 r-xp 00000000 ca:01 8079                       /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.4002.0
+7f096331b000-7f096351a000 ---p 00003000 ca:01 8079                       /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.4002.0
+7f096351a000-7f096351b000 r--p 00002000 ca:01 8079                       /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.4002.0
+7f096351b000-7f096351c000 rw-p 00003000 ca:01 8079                       /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.4002.0
+7f096351c000-7f0963622000 r-xp 00000000 ca:01 396029                     /lib/x86_64-linux-gnu/libglib-2.0.so.0.4002.0
+7f0963622000-7f0963821000 ---p 00106000 ca:01 396029                     /lib/x86_64-linux-gnu/libglib-2.0.so.0.4002.0
+7f0963821000-7f0963822000 r--p 00105000 ca:01 396029                     /lib/x86_64-linux-gnu/libglib-2.0.so.0.4002.0
+7f0963822000-7f0963823000 rw-p 00106000 ca:01 396029                     /lib/x86_64-linux-gnu/libglib-2.0.so.0.4002.0
+7f0963823000-7f0963824000 rw-p 00000000 00:00 0 
+7f0963824000-7f0963873000 r-xp 00000000 ca:01 8083                       /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4002.0
+7f0963873000-7f0963a73000 ---p 0004f000 ca:01 8083                       /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4002.0
+7f0963a73000-7f0963a74000 r--p 0004f000 ca:01 8083                       /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4002.0
+7f0963a74000-7f0963a75000 rw-p 00050000 ca:01 8083                       /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4002.0
+7f0963a75000-7f0963be1000 r-xp 00000000 ca:01 8078                       /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4002.0
+7f0963be1000-7f0963de0000 ---p 0016c000 ca:01 8078                       /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4002.0
+7f0963de0000-7f0963de4000 r--p 0016b000 ca:01 8078                       /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4002.0
+7f0963de4000-7f0963de6000 rw-p 0016f000 ca:01 8078                       /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.4002.0
+7f0963de6000-7f0963de8000 rw-p 00000000 00:00 0 
+7f0963de8000-7f0963dff000 r-xp 00000000 ca:01 14115                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libnet.so
+7f0963dff000-7f0963ffe000 ---p 00017000 ca:01 14115                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libnet.so
+7f0963ffe000-7f0963fff000 r--p 00016000 ca:01 14115                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libnet.so
+7f0963fff000-7f0964000000 rw-p 00017000 ca:01 14115                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libnet.so
+7f0964000000-7f09652c7000 rw-p 00000000 00:00 0 
+7f09652c7000-7f0968000000 ---p 00000000 00:00 0 
+7f0968000000-7f0968021000 rw-p 00000000 00:00 0 
+7f0968021000-7f096c000000 ---p 00000000 00:00 0 
+7f096c000000-7f096c0aa000 rw-p 00000000 00:00 0 
+7f096c0aa000-7f0970000000 ---p 00000000 00:00 0 
+7f0970000000-7f0970dbe000 rw-p 00000000 00:00 0 
+7f0970dbe000-7f0974000000 ---p 00000000 00:00 0 
+7f0974000000-7f097410d000 rw-p 00000000 00:00 0 
+7f097410d000-7f0978000000 ---p 00000000 00:00 0 
+7f0978000000-7f0978241000 rw-p 00000000 00:00 0 
+7f0978241000-7f097c000000 ---p 00000000 00:00 0 
+7f097c000000-7f097c377000 rw-p 00000000 00:00 0 
+7f097c377000-7f0980000000 ---p 00000000 00:00 0 
+7f0980000000-7f0980002000 r--s 0000b000 ca:01 414776                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/concurrentlinkedhashmap-lru-1.2.jar
+7f0980002000-7f0980008000 r--s 00043000 ca:01 414773                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/commons-configuration-1.6.jar
+7f0980008000-7f098000b000 r--s 00026000 ca:01 414768                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/antlr-runtime-3.5.jar
+7f098000b000-7f098000c000 r--s 0000b000 ca:01 414769                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/asm-4.1.jar
+7f098000c000-7f0980012000 r--s 0003f000 ca:01 414791                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/httpcore-4.3.jar
+7f0980012000-7f0980015000 r--s 00018000 ca:01 414802                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/lucene-grouping-4.10.3.jar
+7f0980015000-7f0980025000 r--s 0007d000 ca:01 414784                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/joda-time-2.2.jar
+7f0980025000-7f0980030000 r--s 00084000 ca:01 414790                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/httpclient-4.3.1.jar
+7f0980030000-7f0980037000 r--s 01c57000 ca:01 414758                     /home/ubuntu/nyugeoblacklight/jetty/webapps/solr.war
+7f0980037000-7f098003a000 r--s 00017000 ca:01 414650                     /home/ubuntu/nyugeoblacklight/jetty/lib/jetty-io-8.1.10.v20130312.jar
+7f098003a000-7f098003b000 r--s 00002000 ca:01 414646                     /home/ubuntu/nyugeoblacklight/jetty/lib/ext/slf4j-log4j12-1.6.6.jar
+7f098003b000-7f0980044000 r--s 0006d000 ca:01 414644                     /home/ubuntu/nyugeoblacklight/jetty/lib/ext/log4j-1.2.16.jar
+7f0980044000-7f0980054000 r-xp 00000000 ca:01 14111                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libnio.so
+7f0980054000-7f0980254000 ---p 00010000 ca:01 14111                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libnio.so
+7f0980254000-7f0980255000 r--p 00010000 ca:01 14111                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libnio.so
+7f0980255000-7f0980256000 rw-p 00011000 ca:01 14111                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libnio.so
+7f0980256000-7f0980257000 ---p 00000000 00:00 0 
+7f0980257000-7f0980357000 rw-p 00000000 00:00 0                          [stack:1458]
+7f0980357000-7f098035a000 ---p 00000000 00:00 0 
+7f098035a000-7f0980458000 rw-p 00000000 00:00 0                          [stack:1457]
+7f0980458000-7f098045b000 ---p 00000000 00:00 0 
+7f098045b000-7f0980559000 rw-p 00000000 00:00 0                          [stack:1456]
+7f0980559000-7f098055c000 ---p 00000000 00:00 0 
+7f098055c000-7f098065a000 rw-p 00000000 00:00 0                          [stack:1455]
+7f098065a000-7f098065d000 ---p 00000000 00:00 0 
+7f098065d000-7f098075b000 rw-p 00000000 00:00 0                          [stack:1454]
+7f098075b000-7f09808e4000 r--p 00000000 ca:01 1578                       /usr/lib/locale/locale-archive
+7f09808e4000-7f09808e7000 ---p 00000000 00:00 0 
+7f09808e7000-7f09809e5000 rw-p 00000000 00:00 0                          [stack:1453]
+7f09809e5000-7f09809e8000 ---p 00000000 00:00 0 
+7f09809e8000-7f0980ae6000 rw-p 00000000 00:00 0                          [stack:1452]
+7f0980ae6000-7f0980ae7000 ---p 00000000 00:00 0 
+7f0980ae7000-7f0980c30000 rw-p 00000000 00:00 0                          [stack:1451]
+7f0980c30000-7f0980de2000 r--s 01d23000 ca:01 14063                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar
+7f0980de2000-7f0980ec0000 rw-p 00000000 00:00 0 
+7f0980ec0000-7f0980f06000 rw-p 00000000 00:00 0 
+7f0980f06000-7f0980f20000 rw-p 00000000 00:00 0 
+7f0980f20000-7f0980fac000 rw-p 00000000 00:00 0 
+7f0980fac000-7f0980fbb000 rw-p 00000000 00:00 0 
+7f0980fbb000-7f0980fff000 rw-p 00000000 00:00 0 
+7f0980fff000-7f0981000000 rw-p 00000000 00:00 0 
+7f0981000000-7f0981450000 rwxp 00000000 00:00 0 
+7f0981450000-7f0984c80000 rw-p 00000000 00:00 0 
+7f0984c80000-7f0988000000 ---p 00000000 00:00 0 
+7f0988000000-7f0988002000 r--s 00005000 ca:01 414645                     /home/ubuntu/nyugeoblacklight/jetty/lib/ext/slf4j-api-1.6.6.jar
+7f0988002000-7f0988003000 r--s 00001000 ca:01 414643                     /home/ubuntu/nyugeoblacklight/jetty/lib/ext/jul-to-slf4j-1.6.6.jar
+7f0988003000-7f0988005000 r--s 00003000 ca:01 414642                     /home/ubuntu/nyugeoblacklight/jetty/lib/ext/jcl-over-slf4j-1.6.6.jar
+7f0988005000-7f0988007000 r--s 00011000 ca:01 414801                     /home/ubuntu/nyugeoblacklight/jetty/solr-webapp/webapp/WEB-INF/lib/lucene-expressions-4.10.3.jar
+7f0988007000-7f0988009000 r--s 0000d000 ca:01 414648                     /home/ubuntu/nyugeoblacklight/jetty/lib/jetty-deploy-8.1.10.v20130312.jar
+7f0988009000-7f098800b000 r--s 00019000 ca:01 414656                     /home/ubuntu/nyugeoblacklight/jetty/lib/jetty-webapp-8.1.10.v20130312.jar
+7f098800b000-7f098800d000 r--s 00017000 ca:01 414654                     /home/ubuntu/nyugeoblacklight/jetty/lib/jetty-servlet-8.1.10.v20130312.jar
+7f098800d000-7f098800f000 r--s 00014000 ca:01 414652                     /home/ubuntu/nyugeoblacklight/jetty/lib/jetty-security-8.1.10.v20130312.jar
+7f098800f000-7f0988012000 r--s 00017000 ca:01 14042                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jce.jar
+7f0988012000-7f0988017000 r--s 00050000 ca:01 414653                     /home/ubuntu/nyugeoblacklight/jetty/lib/jetty-server-8.1.10.v20130312.jar
+7f0988017000-7f0988026000 rw-p 00000000 00:00 0 
+7f0988026000-7f098806b000 rw-p 00000000 00:00 0 
+7f098806b000-7f0988085000 rw-p 00000000 00:00 0 
+7f0988085000-7f0988112000 rw-p 00000000 00:00 0 
+7f0988112000-7f098811a000 r-xp 00000000 ca:01 14141                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libzip.so
+7f098811a000-7f0988319000 ---p 00008000 ca:01 14141                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libzip.so
+7f0988319000-7f098831a000 r--p 00007000 ca:01 14141                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libzip.so
+7f098831a000-7f098831b000 rw-p 00008000 ca:01 14141                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libzip.so
+7f098831b000-7f0988326000 r-xp 00000000 ca:01 398005                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f0988326000-7f0988525000 ---p 0000b000 ca:01 398005                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f0988525000-7f0988526000 r--p 0000a000 ca:01 398005                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f0988526000-7f0988527000 rw-p 0000b000 ca:01 398005                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f0988527000-7f0988532000 r-xp 00000000 ca:01 398025                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f0988532000-7f0988731000 ---p 0000b000 ca:01 398025                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f0988731000-7f0988732000 r--p 0000a000 ca:01 398025                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f0988732000-7f0988733000 rw-p 0000b000 ca:01 398025                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f0988733000-7f098874a000 r-xp 00000000 ca:01 398014                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f098874a000-7f0988949000 ---p 00017000 ca:01 398014                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f0988949000-7f098894a000 r--p 00016000 ca:01 398014                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f098894a000-7f098894b000 rw-p 00017000 ca:01 398014                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f098894b000-7f098894d000 rw-p 00000000 00:00 0 
+7f098894d000-7f0988956000 r-xp 00000000 ca:01 398013                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f0988956000-7f0988b55000 ---p 00009000 ca:01 398013                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f0988b55000-7f0988b56000 r--p 00008000 ca:01 398013                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f0988b56000-7f0988b57000 rw-p 00009000 ca:01 398013                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f0988b57000-7f0988b82000 r-xp 00000000 ca:01 14125                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libjava.so
+7f0988b82000-7f0988d82000 ---p 0002b000 ca:01 14125                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libjava.so
+7f0988d82000-7f0988d83000 r--p 0002b000 ca:01 14125                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libjava.so
+7f0988d83000-7f0988d85000 rw-p 0002c000 ca:01 14125                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libjava.so
+7f0988d85000-7f0988d95000 r-xp 00000000 ca:01 14124                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libverify.so
+7f0988d95000-7f0988f94000 ---p 00010000 ca:01 14124                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libverify.so
+7f0988f94000-7f0988f96000 r--p 0000f000 ca:01 14124                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libverify.so
+7f0988f96000-7f0988f97000 rw-p 00011000 ca:01 14124                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/libverify.so
+7f0988f97000-7f0988f9e000 r-xp 00000000 ca:01 398022                     /lib/x86_64-linux-gnu/librt-2.19.so
+7f0988f9e000-7f098919d000 ---p 00007000 ca:01 398022                     /lib/x86_64-linux-gnu/librt-2.19.so
+7f098919d000-7f098919e000 r--p 00006000 ca:01 398022                     /lib/x86_64-linux-gnu/librt-2.19.so
+7f098919e000-7f098919f000 rw-p 00007000 ca:01 398022                     /lib/x86_64-linux-gnu/librt-2.19.so
+7f098919f000-7f09891b5000 r-xp 00000000 ca:01 396027                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f09891b5000-7f09893b4000 ---p 00016000 ca:01 396027                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f09893b4000-7f09893b5000 rw-p 00015000 ca:01 396027                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f09893b5000-7f09894ba000 r-xp 00000000 ca:01 398004                     /lib/x86_64-linux-gnu/libm-2.19.so
+7f09894ba000-7f09896b9000 ---p 00105000 ca:01 398004                     /lib/x86_64-linux-gnu/libm-2.19.so
+7f09896b9000-7f09896ba000 r--p 00104000 ca:01 398004                     /lib/x86_64-linux-gnu/libm-2.19.so
+7f09896ba000-7f09896bb000 rw-p 00105000 ca:01 398004                     /lib/x86_64-linux-gnu/libm-2.19.so
+7f09896bb000-7f09897a1000 r-xp 00000000 ca:01 8131                       /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+7f09897a1000-7f09899a0000 ---p 000e6000 ca:01 8131                       /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+7f09899a0000-7f09899a8000 r--p 000e5000 ca:01 8131                       /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+7f09899a8000-7f09899aa000 rw-p 000ed000 ca:01 8131                       /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+7f09899aa000-7f09899bf000 rw-p 00000000 00:00 0 
+7f09899bf000-7f098a4d7000 r-xp 00000000 ca:01 14130                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f098a4d7000-7f098a6d7000 ---p 00b18000 ca:01 14130                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f098a6d7000-7f098a771000 r--p 00b18000 ca:01 14130                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f098a771000-7f098a794000 rw-p 00bb2000 ca:01 14130                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f098a794000-7f098a7c2000 rw-p 00000000 00:00 0 
+7f098a7c2000-7f098a7da000 r-xp 00000000 ca:01 396086                     /lib/x86_64-linux-gnu/libz.so.1.2.8
+7f098a7da000-7f098a9d9000 ---p 00018000 ca:01 396086                     /lib/x86_64-linux-gnu/libz.so.1.2.8
+7f098a9d9000-7f098a9da000 r--p 00017000 ca:01 396086                     /lib/x86_64-linux-gnu/libz.so.1.2.8
+7f098a9da000-7f098a9db000 rw-p 00018000 ca:01 396086                     /lib/x86_64-linux-gnu/libz.so.1.2.8
+7f098a9db000-7f098a9f4000 r-xp 00000000 ca:01 398020                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f098a9f4000-7f098abf3000 ---p 00019000 ca:01 398020                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f098abf3000-7f098abf4000 r--p 00018000 ca:01 398020                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f098abf4000-7f098abf5000 rw-p 00019000 ca:01 398020                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f098abf5000-7f098abf9000 rw-p 00000000 00:00 0 
+7f098abf9000-7f098abfc000 r-xp 00000000 ca:01 398008                     /lib/x86_64-linux-gnu/libdl-2.19.so
+7f098abfc000-7f098adfb000 ---p 00003000 ca:01 398008                     /lib/x86_64-linux-gnu/libdl-2.19.so
+7f098adfb000-7f098adfc000 r--p 00002000 ca:01 398008                     /lib/x86_64-linux-gnu/libdl-2.19.so
+7f098adfc000-7f098adfd000 rw-p 00003000 ca:01 398008                     /lib/x86_64-linux-gnu/libdl-2.19.so
+7f098adfd000-7f098afb8000 r-xp 00000000 ca:01 398019                     /lib/x86_64-linux-gnu/libc-2.19.so
+7f098afb8000-7f098b1b7000 ---p 001bb000 ca:01 398019                     /lib/x86_64-linux-gnu/libc-2.19.so
+7f098b1b7000-7f098b1bb000 r--p 001ba000 ca:01 398019                     /lib/x86_64-linux-gnu/libc-2.19.so
+7f098b1bb000-7f098b1bd000 rw-p 001be000 ca:01 398019                     /lib/x86_64-linux-gnu/libc-2.19.so
+7f098b1bd000-7f098b1c2000 rw-p 00000000 00:00 0 
+7f098b1c2000-7f098b1cf000 r-xp 00000000 ca:01 14107                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7f098b1cf000-7f098b3ce000 ---p 0000d000 ca:01 14107                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7f098b3ce000-7f098b3cf000 r--p 0000c000 ca:01 14107                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7f098b3cf000-7f098b3d0000 rw-p 0000d000 ca:01 14107                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7f098b3d0000-7f098b3f3000 r-xp 00000000 ca:01 398016                     /lib/x86_64-linux-gnu/ld-2.19.so
+7f098b3f3000-7f098b3f7000 r--s 0004d000 ca:01 14082                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jsse.jar
+7f098b3f7000-7f098b3f9000 r--s 00004000 ca:01 414647                     /home/ubuntu/nyugeoblacklight/jetty/lib/jetty-continuation-8.1.10.v20130312.jar
+7f098b3f9000-7f098b3fb000 r--s 00016000 ca:01 414649                     /home/ubuntu/nyugeoblacklight/jetty/lib/jetty-http-8.1.10.v20130312.jar
+7f098b3fb000-7f098b3fe000 r--s 0002e000 ca:01 414658                     /home/ubuntu/nyugeoblacklight/jetty/lib/servlet-api-3.0.jar
+7f098b3fe000-7f098b403000 r--s 00041000 ca:01 414655                     /home/ubuntu/nyugeoblacklight/jetty/lib/jetty-util-8.1.10.v20130312.jar
+7f098b403000-7f098b40c000 r--s 000b9000 ca:01 14065                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/resources.jar
+7f098b40c000-7f098b40e000 r--s 0000a000 ca:01 414755                     /home/ubuntu/nyugeoblacklight/jetty/start.jar
+7f098b40e000-7f098b412000 r--s 0003c000 ca:01 14068                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/sunpkcs11.jar
+7f098b412000-7f098b416000 r--s 00034000 ca:01 14069                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/sunjce_provider.jar
+7f098b416000-7f098b419000 r--s 00086000 ca:01 14072                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/localedata.jar
+7f098b419000-7f098b42b000 rw-p 00000000 00:00 0 
+7f098b42b000-7f098b4d9000 rw-p 00000000 00:00 0 
+7f098b4d9000-7f098b4e1000 rw-s 00000000 ca:01 14449                      /tmp/hsperfdata_ubuntu/1444
+7f098b4e1000-7f098b4e4000 ---p 00000000 00:00 0 
+7f098b4e4000-7f098b5e7000 rw-p 00000000 00:00 0                          [stack:1450]
+7f098b5e7000-7f098b5e8000 r--s 00009000 ca:01 414657                     /home/ubuntu/nyugeoblacklight/jetty/lib/jetty-xml-8.1.10.v20130312.jar
+7f098b5e8000-7f098b5e9000 r--s 00002000 ca:01 14071                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/dnsns.jar
+7f098b5e9000-7f098b5ec000 r--s 0000f000 ca:01 14067                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/icedtea-sound.jar
+7f098b5ec000-7f098b5ee000 r--s 00012000 ca:01 14070                      /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/zipfs.jar
+7f098b5ee000-7f098b5ef000 rw-p 00000000 00:00 0 
+7f098b5ef000-7f098b5f0000 ---p 00000000 00:00 0 
+7f098b5f0000-7f098b5f2000 rw-p 00000000 00:00 0 
+7f098b5f2000-7f098b5f3000 r--p 00022000 ca:01 398016                     /lib/x86_64-linux-gnu/ld-2.19.so
+7f098b5f3000-7f098b5f4000 rw-p 00023000 ca:01 398016                     /lib/x86_64-linux-gnu/ld-2.19.so
+7f098b5f4000-7f098b5f5000 rw-p 00000000 00:00 0 
+7fffed193000-7fffed1b4000 rw-p 00000000 00:00 0                          [stack]
+7fffed1fe000-7fffed200000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Djetty.port=8983 -Dsolr.solr.home=/home/ubuntu/nyugeoblacklight/jetty/solr 
+java_command: start.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/home/ubuntu/.rvm/gems/ruby-2.2.1/bin:/home/ubuntu/.rvm/gems/ruby-2.2.1@global/bin:/home/ubuntu/.rvm/rubies/ruby-2.2.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/ubuntu/.rvm/bin
+SHELL=/bin/bash
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x94b4b0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x94b4b0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x7c3390], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: SIG_IGN, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGXFSZ: [libjvm.so+0x7c3390], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x7c3390], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x7c3230], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x7c3410], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x7c3410], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x7c3410], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x7c3410], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTRAP: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Ubuntu 14.04 (trusty)
+uname:Linux 3.13.0-44-generic #73-Ubuntu SMP Tue Dec 16 00:22:43 UTC 2014 x86_64
+libc:glibc 2.19 NPTL 2.19 
+rlimit: STACK 8192k, CORE 0k, NPROC 7862, NOFILE 4096, AS infinity
+load average:1.63 0.66 0.33
+
+/proc/meminfo:
+MemTotal:        1016292 kB
+MemFree:           62236 kB
+Buffers:             388 kB
+Cached:             6628 kB
+SwapCached:            0 kB
+Active:           905828 kB
+Inactive:           6072 kB
+Active(anon):     905008 kB
+Inactive(anon):      536 kB
+Active(file):        820 kB
+Inactive(file):     5536 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:               140 kB
+Writeback:             0 kB
+AnonPages:        904928 kB
+Mapped:             1896 kB
+Shmem:               616 kB
+Slab:              21588 kB
+SReclaimable:       9968 kB
+SUnreclaim:        11620 kB
+KernelStack:        2032 kB
+PageTables:         6292 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:      508144 kB
+Committed_AS:    1307392 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:        2464 kB
+VmallocChunk:   34359732015 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    753664 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       20480 kB
+DirectMap2M:     1159168 kB
+
+
+CPU:total 1 (1 cores per cpu, 1 threads per core) family 6 model 62 stepping 4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, erms, tsc
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 62
+model name	: Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+stepping	: 4
+microcode	: 0x415
+cpu MHz		: 2494.054
+cache size	: 25600 KB
+physical id	: 0
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology eagerfpu pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm xsaveopt fsgsbase smep erms
+bogomips	: 4988.10
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 1016292k(62236k free), swap 0k(0k free)
+
+vm_info: OpenJDK 64-Bit Server VM (24.75-b04) for linux-amd64 JRE (1.7.0_75-b13), built on Jan 27 2015 00:38:59 by "buildd" with gcc 4.8.2
+
+time: Sat Mar 21 15:34:34 2015
+elapsed time: 55603 seconds
+
