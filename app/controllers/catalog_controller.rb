@@ -8,18 +8,20 @@ class CatalogController < ApplicationController
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
-      :start => 0,
-      :rows => 10,
-      'q.alt' => '*:*'
+        :start => 0,
+        :rows => 10,
+        'q.alt' => '*:*'
     }
 
     ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or
     ## parameters included in the Blacklight-jetty document requestHandler.
     #
     config.default_document_solr_params = {
-     :qt => 'document',
-     :q => '{!raw f=layer_slug_s v=$id}'
+        :qt => 'document',
+        :q => '{!raw f=layer_slug_s v=$id}'
     }
+
+    config.search_builder_class = Geoblacklight::SearchBuilder
 
     # solr field configuration for search results/index views
     # config.index.show_link = 'title_display'
@@ -76,10 +78,10 @@ class CatalogController < ApplicationController
     config.add_facet_field 'dct_isPartOf_sm', :label => 'Collection', :limit => 8
 
     config.add_facet_field 'solr_year_i', :label => 'Year', :limit => 10, :range => {
-      # :num_segments => 6,
-      :assumed_boundaries => [1100, 2015]
-      # :segments => true
-    }
+                                            # :num_segments => 6,
+                                            :assumed_boundaries => [1100, 2015]
+                                            # :segments => true
+                                        }
 
     config.add_facet_field 'dc_rights_s', label: 'Access', limit: 8, partial: "icon_facet"
     config.add_facet_field 'layer_geom_type_s', label: 'Data type', limit: 8, partial: "icon_facet"
@@ -210,6 +212,14 @@ class CatalogController < ApplicationController
     config.add_show_tools_partial :web_services, if: proc { |_context, _config, options| options[:document] && (Settings.WEBSERVICES_SHOWN & options[:document].references.refs.map(&:type).map(&:to_s)).any? }
     config.add_show_tools_partial :metadata, if: proc { |_context, _config, options| options[:document] && (Settings.METADATA_SHOWN & options[:document].references.refs.map(&:type).map(&:to_s)).any? }
     config.add_show_tools_partial :downloads, partial: 'downloads', if: proc { |_context, _config, options| options[:document] }
+
+    # Configure basemap provider for GeoBlacklight maps (uses https only basemap
+    # providers with open licenses)
+    # Valid basemaps include:
+    # 'mapquest' http://developer.mapquest.com/web/products/open/map
+    # 'positron' http://cartodb.com/basemaps/
+    # 'darkMatter' http://cartodb.com/basemaps/
+    config.basemap_provider = 'mapquest'
   end
 
 
