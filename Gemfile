@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'blacklight'
-gem "geoblacklight", '~> 0.9.2'
+gem 'geoblacklight', :git => 'https://github.com/geoblacklight/geoblacklight.git', :branch => 'add-envelope-support'
 gem 'jettywrapper'
 gem 'geoblacklight-icons'
 
